@@ -9,7 +9,7 @@ import java.util.List;
 public class VendingMachine {
     private int money;
     private List<Product> products = new ArrayList<>();
-    private HashMap<Coin, Integer> coins = new HashMap<>();
+    private HashMap<Integer, Integer> coins = new HashMap<>();
 
     VendingMachine(int money) {
         this.money = money;
@@ -17,9 +17,9 @@ public class VendingMachine {
     }
 
     private void initCoins() {
-        coins.put(Coin.COIN_500, 0);
-        coins.put(Coin.COIN_100, 0);
-        coins.put(Coin.COIN_50, 0);
-        coins.put(Coin.COIN_10, 0);
+        coins.put(Coin.COIN_500.getAmount(), 0);
+        coins.put(Coin.COIN_100.getAmount(), 0);
+        coins.put(Coin.COIN_50.getAmount(), 0);
+        coins.put(Coin.COIN_10.getAmount(), 0);
     }
 }
