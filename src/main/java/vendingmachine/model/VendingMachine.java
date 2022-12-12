@@ -36,6 +36,15 @@ public class VendingMachine {
         }
     }
 
+    public void makeProduct(String name, int price, int stock) {
+        Product newProduct = new Product(name, price, stock);
+        products.add(newProduct);
+    }
+
+    public void setUserMoney(int userInput) {
+        this.userMoney = userInput;
+    }
+
     private HashMap<Integer, Integer> setReturnCoins() {
         HashMap<Integer, Integer> returnCoins = new LinkedHashMap<>();
         for (int coin : coins.keySet()) {
@@ -44,10 +53,5 @@ public class VendingMachine {
             userMoney -= coin*number;
         }
         return returnCoins;
-    }
-
-    public void makeProduct(String name, int price, int stock) {
-        Product newProduct = new Product(name, price, stock);
-        products.add(newProduct);
     }
 }
