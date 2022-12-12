@@ -11,7 +11,15 @@ public class Product {
         this.stock = stock;
     }
 
-    public void buyThisProduct() {
+    public int getPrice() {
+        return price;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void reduceStock() {
         stock--;
         //구매할 수 없는 경우 예외처리
     }
