@@ -45,4 +45,9 @@ public class VendingMachine {
         }
         return returnCoins;
     }
+
+    public void makeProduct(String name, int price, int stock) {
+        Product newProduct = new Product(name, price, stock);
+        products.add(newProduct);
+    }
 }
