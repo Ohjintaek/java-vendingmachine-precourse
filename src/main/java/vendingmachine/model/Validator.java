@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 public class Validator {
     public static final String error = "[Error] ";
     public static final String format = "^\\[[a-zA-Z0-9가-힣]+,\\d+,\\d+]$";
+    public static final int MIN_PRICE = 100;
 
     public static int isValidNumber(String userInput) {
         isStartZero(userInput);
@@ -30,6 +31,12 @@ public class Validator {
     public static void isValidProduct(String product) {
         if (!Pattern.matches(format, product)) {
             throw new IllegalArgumentException(error + "잘못된 형식의 상품명을 입력했습니다.");
+        }
+    }
+
+    public static void isOverHundred(int number) {
+        if (number < MIN_PRICE) {
+            throw new IllegalArgumentException(error + "상품 금액은 100원 이상이어야 합니다.");
         }
     }
 }
