@@ -9,7 +9,6 @@ import java.util.List;
 
 public class VendingMachine {
     private int userMoney = 0;
-    private List<Product> products = new ArrayList<>();
     private HashMap<Integer, Integer> coins = new LinkedHashMap<>();
 
     public VendingMachine(int userInput) {
@@ -34,11 +33,6 @@ public class VendingMachine {
                 coins.put(tmpMoney, coins.get(tmpMoney) + 1);
             }
         }
-    }
-
-    public void makeProduct(String name, int price, int stock) {
-        Product newProduct = new Product(name, price, stock);
-        products.add(newProduct);
     }
 
     public void setUserMoney(int userInput) {
