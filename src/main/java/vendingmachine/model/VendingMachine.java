@@ -22,4 +22,16 @@ public class VendingMachine {
         coins.put(Coin.COIN_50.getAmount(), 0);
         coins.put(Coin.COIN_10.getAmount(), 0);
     }
+
+    private void setCoins(int userInput) {
+        int money = userInput;
+        List<Integer> change = List.of(500,100,50,10); // 하드코딩
+        while (money != 0) {
+            int tmpMoney = Randoms.pickNumberInList(change);
+            if (money >= tmpMoney) {
+                money -= tmpMoney;
+                coins.put(tmpMoney, coins.get(tmpMoney) + 1);
+            }
+        }
+    }
 }
