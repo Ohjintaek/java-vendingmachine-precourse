@@ -11,9 +11,9 @@ public class VendingMachine {
     private List<Product> products = new ArrayList<>();
     private HashMap<Integer, Integer> coins = new HashMap<>();
 
-    VendingMachine(int money) {
-        this.money = money;
+    VendingMachine(int userInput) {
         initCoins();
+        setCoins(userInput);
     }
 
     private void initCoins() {
@@ -34,4 +34,6 @@ public class VendingMachine {
             }
         }
     }
+
+
 }
