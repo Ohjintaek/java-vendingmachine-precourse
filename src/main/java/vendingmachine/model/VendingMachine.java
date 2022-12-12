@@ -4,14 +4,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class VendingMachine {
-    private int money;
+    private int userMoney = 0;
     private List<Product> products = new ArrayList<>();
-    private HashMap<Integer, Integer> coins = new HashMap<>();
+    private HashMap<Integer, Integer> coins = new LinkedHashMap<>();
 
-    VendingMachine(int userInput) {
+    public VendingMachine(int userInput) {
         initCoins();
         setCoins(userInput);
     }
@@ -35,5 +36,13 @@ public class VendingMachine {
         }
     }
 
-
+    private HashMap<Integer, Integer> setReturnCoins() {
+        HashMap<Integer, Integer> returnCoins = new LinkedHashMap<>();
+        for (int coin : coins.keySet()) {
+            int number = Math.min(userMoney / coin, coins.get(coin));
+            returnCoins.put(coin, number);
+            userMoney -= coin*number;
+        }
+        return returnCoins;
+    }
 }
