@@ -10,6 +10,7 @@ public class InputView {
     public int getVendingMachineMoney() {
         System.out.println(InputViewConstants.getVendingMachineMoneyMessage);
         String userInput = Console.readLine();
+        System.out.println();
 
         int vendingMachineMoney = Validator.isValidNumber(userInput);
         Validator.isDividableTen(vendingMachineMoney);
@@ -20,6 +21,7 @@ public class InputView {
     public List<String> getProduct() {
         System.out.println(InputViewConstants.getProductMessage);
         String userInput = Console.readLine();
+        System.out.println();
 
         List<String> productSet = List.of(userInput.split(";"));
         for (String product : productSet) {
@@ -32,6 +34,7 @@ public class InputView {
     public int getMoney() {
         System.out.println(InputViewConstants.getMoneyMessage);
         String userInput = Console.readLine();
+        System.out.println();
 
         int userMoney = Validator.isValidNumber(userInput);
 
@@ -41,6 +44,7 @@ public class InputView {
     public String getProductName() {
         System.out.println(InputViewConstants.getProductNameMessage);
         String productName = Console.readLine();
+        System.out.println();
 
         return productName;
     }
