@@ -36,6 +36,10 @@ public class VendingMachine {
         return coins;
     }
 
+    public int getUserMoney() {
+        return userMoney;
+    }
+
     public void setUserMoney(int userInput) {
         this.userMoney = userInput;
     }
