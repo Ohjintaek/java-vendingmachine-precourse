@@ -24,6 +24,8 @@ public class VendingMachineController {
 
     public void run() {
         makeVendingMachine();
+        storeProduct();
+
     }
 
     private void makeVendingMachine() {
@@ -36,6 +38,16 @@ public class VendingMachineController {
         for (String product : tmpProducts) {
             Validator.isValidProduct(product);
             products.addProduct(product);
+        }
+    }
+
+    private void buyProduct() {
+        userMoney = inputView.getMoney();
+        outputView.showUserMoney(userMoney);
+
+        while(products.canBuyProduct(userMoney)) {
+            userMoney -= products.buyProduct(inputView.getProductName());
+            outputView.showUserMoney(userMoney);
         }
     }
 }
