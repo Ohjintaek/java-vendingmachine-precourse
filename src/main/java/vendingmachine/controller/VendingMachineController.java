@@ -13,6 +13,7 @@ public class VendingMachineController {
     private final OutputView outputView;
     private VendingMachine vendingMachine;
     private Products products;
+    private int userMoney;
 
     public VendingMachineController() {
         this.inputView = new InputView();

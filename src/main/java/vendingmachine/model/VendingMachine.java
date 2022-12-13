@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class VendingMachine {
-    private int userMoney;
     private HashMap<Integer, Integer> coins = new LinkedHashMap<>();
 
     public VendingMachine() {
@@ -36,15 +35,7 @@ public class VendingMachine {
         return coins;
     }
 
-    public int getUserMoney() {
-        return userMoney;
-    }
-
-    public void setUserMoney(int userInput) {
-        this.userMoney = userInput;
-    }
-
-    private HashMap<Integer, Integer> setReturnCoins() {
+    private HashMap<Integer, Integer> setReturnCoins(int userMoney) {
         HashMap<Integer, Integer> returnCoins = new LinkedHashMap<>();
         for (int coin : coins.keySet()) {
             int number = Math.min(userMoney / coin, coins.get(coin));
