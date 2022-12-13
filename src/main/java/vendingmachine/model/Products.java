@@ -17,9 +17,12 @@ public class Products {
         minPrice = Math.min(minPrice, price);
     }
 
-    public void buyProduct(String productName) {
+    public int buyProduct(String productName) {
         //예외처리 (상품명 존재)
-        products.get(productName).reduceStock();
+        Product wantedProduct = products.get(productName);
+        wantedProduct.reduceStock();
+
+        return wantedProduct.getPrice();
     }
 
     public boolean canBuyProduct(int userMoney) {
