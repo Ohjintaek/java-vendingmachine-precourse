@@ -1,7 +1,6 @@
 package vendingmachine.model;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Products {
     private HashMap<String, Product> products = new HashMap<>();
@@ -12,13 +11,19 @@ public class Products {
         String name = productDetail[0];
         int price = Integer.parseInt(productDetail[1]);
         int stock = Integer.parseInt(productDetail[2]);
+
+        Validator.isDuplicateProduct(name, products.keySet());
+        Validator.isOverHundred(price);
+
         Product newProduct = new Product(name, price, stock);
         products.put(name, newProduct);
         minPrice = Math.min(minPrice, price);
     }
 
     public int buyProduct(String productName) {
-        //예외처리 (상품명 존재)
+        if (!products.containsKey(productName)) {
+            throw new IllegalArgumentException(Validator.error + "자판기에 해당 상품이 존재하지 않습니다.");
+        }
         Product wantedProduct = products.get(productName);
         wantedProduct.reduceStock();
 
