@@ -14,4 +14,12 @@ public class OutputView {
     public void showUserMoney(int userMoney) {
         System.out.println(String.format("투입 금액: %d원", userMoney));
     }
+
+    public void showReturnCoins(HashMap<Integer, Integer> returnCoins) {
+        System.out.println("잔돈");
+        for (int coin : returnCoins.keySet()) {
+            System.out.println(String.format("%d원 - %d개", coin, returnCoins.get(coin)));
+        }
+        System.out.println();
+    }
 }
