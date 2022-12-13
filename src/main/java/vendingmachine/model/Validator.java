@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Validator {
-    public static final String error = "[Error] ";
+    public static final String error = "[ERROR] ";
     public static final String format = "^\\[[a-zA-Z0-9가-힣]+,\\d+,\\d+]$";
     public static final int MIN_PRICE = 100;
 
