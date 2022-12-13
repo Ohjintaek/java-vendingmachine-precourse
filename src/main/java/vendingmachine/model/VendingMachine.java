@@ -2,7 +2,6 @@ package vendingmachine.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;

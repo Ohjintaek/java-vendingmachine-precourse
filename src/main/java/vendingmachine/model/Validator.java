@@ -42,7 +42,7 @@ public class Validator {
         }
     }
 
-    public static void isDuplicateProduct(String product, List<String> productSet) {
+    public static void isDuplicateProduct(String product, Set<String> productSet) {
         if (productSet.contains(product)) {
             throw new IllegalArgumentException(error + "동일한 상품을 입력했습니다.");
         }
