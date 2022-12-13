@@ -1,6 +1,5 @@
 package vendingmachine.model;
 
-import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
