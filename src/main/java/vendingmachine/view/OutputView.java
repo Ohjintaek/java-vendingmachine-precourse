@@ -10,4 +10,8 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public void showUserMoney(int userMoney) {
+        System.out.println(String.format("투입 금액: %d원", userMoney));
+    }
 }
