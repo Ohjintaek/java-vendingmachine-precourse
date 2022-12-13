@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class VendingMachine {
-    private int userMoney = 0;
+    private int userMoney;
     private HashMap<Integer, Integer> coins = new LinkedHashMap<>();
 
     public VendingMachine(int userInput) {
