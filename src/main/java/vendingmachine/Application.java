@@ -6,6 +6,10 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         VendingMachineController vendingMachineController = new VendingMachineController();
-        vendingMachineController.run();
+        try {
+            vendingMachineController.run();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
