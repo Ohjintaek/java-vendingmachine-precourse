@@ -2,40 +2,46 @@ package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import vendingmachine.model.Validator;
+
+import java.util.List;
+
 public class InputView {
-    public String getVendingMachineMoney() {
+    public int getVendingMachineMoney() {
         System.out.println(InputViewConstants.getVendingMachineMoneyMessage);
         String userInput = Console.readLine();
 
-        //예외 처리
+        int vendingMachineMoney = Validator.isValidNumber(userInput);
+        Validator.isDividableTen(vendingMachineMoney);
 
-        return userInput;
+        return vendingMachineMoney;
     }
 
-    public String getProduct() {
+    public List<String> getProduct() {
         System.out.println(InputViewConstants.getProductMessage);
         String userInput = Console.readLine();
 
-        //예외처리
+        List<String> productSet = List.of(userInput.split(";"));
+        for (String product : productSet) {
+            Validator.isValidProduct(product);
+        }
 
-        return userInput;
+        return productSet;
     }
 
-    public String getMoney() {
+    public int getMoney() {
         System.out.println(InputViewConstants.getMoneyMessage);
         String userInput = Console.readLine();
 
-        //예외처리
+        int userMoney = Validator.isValidNumber(userInput);
 
-        return userInput;
+        return userMoney;
     }
 
     public String getProductName() {
         System.out.println(InputViewConstants.getProductNameMessage);
-        String userInput = Console.readLine();
+        String productName = Console.readLine();
 
-        //예외처리
-
-        return userInput;
+        return productName;
     }
 }
