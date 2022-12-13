@@ -1,5 +1,6 @@
 package vendingmachine.model;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Validator {
@@ -37,6 +38,12 @@ public class Validator {
     public static void isOverHundred(int number) {
         if (number < MIN_PRICE) {
             throw new IllegalArgumentException(error + "상품 금액은 100원 이상이어야 합니다.");
+        }
+    }
+
+    public static void isDuplicateProduct(String product, List<String> productSet) {
+        if (productSet.contains(product)) {
+            throw new IllegalArgumentException(error + "동일한 상품을 입력했습니다.");
         }
     }
 }
