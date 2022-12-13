@@ -11,9 +11,8 @@ public class VendingMachine {
     private int userMoney;
     private HashMap<Integer, Integer> coins = new LinkedHashMap<>();
 
-    public VendingMachine(int userInput) {
+    public VendingMachine() {
         initCoins();
-        setCoins(userInput);
     }
 
     private void initCoins() {
@@ -23,7 +22,7 @@ public class VendingMachine {
         coins.put(Coin.COIN_10.getAmount(), 0);
     }
 
-    private void setCoins(int userInput) {
+    public HashMap<Integer, Integer> setCoins(int userInput) {
         int money = userInput;
         List<Integer> change = List.of(500,100,50,10); // 하드코딩
         while (money != 0) {
@@ -33,6 +32,8 @@ public class VendingMachine {
                 coins.put(tmpMoney, coins.get(tmpMoney) + 1);
             }
         }
+
+        return coins;
     }
 
     public void setUserMoney(int userInput) {
