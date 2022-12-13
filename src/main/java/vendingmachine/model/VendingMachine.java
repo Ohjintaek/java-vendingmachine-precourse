@@ -35,11 +35,13 @@ public class VendingMachine {
         return coins;
     }
 
-    private HashMap<Integer, Integer> setReturnCoins(int userMoney) {
+    public HashMap<Integer, Integer> setReturnCoins(int userMoney) {
         HashMap<Integer, Integer> returnCoins = new LinkedHashMap<>();
         for (int coin : coins.keySet()) {
             int number = Math.min(userMoney / coin, coins.get(coin));
-            returnCoins.put(coin, number);
+            if (number != 0) {
+                returnCoins.put(coin, number);
+            }
             userMoney -= coin*number;
         }
         return returnCoins;

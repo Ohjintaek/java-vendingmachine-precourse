@@ -8,7 +8,7 @@ public class Products {
     private int minPrice = Integer.MAX_VALUE;
 
     public void addProduct(String product) {
-        String[] productDetail = product.split(",");
+        String[] productDetail = product.replaceAll("[\\[\\]]","").split(",");
         String name = productDetail[0];
         int price = Integer.parseInt(productDetail[1]);
         int stock = Integer.parseInt(productDetail[2]);

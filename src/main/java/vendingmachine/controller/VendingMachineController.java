@@ -6,6 +6,7 @@ import vendingmachine.model.Validator;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class VendingMachineController {
@@ -25,7 +26,8 @@ public class VendingMachineController {
     public void run() {
         makeVendingMachine();
         storeProduct();
-
+        buyProduct();
+        returnMoney();
     }
 
     private void makeVendingMachine() {
@@ -49,5 +51,10 @@ public class VendingMachineController {
             userMoney -= products.buyProduct(inputView.getProductName());
             outputView.showUserMoney(userMoney);
         }
+    }
+
+    private void returnMoney() {
+        HashMap<Integer, Integer> returnCoins = vendingMachine.setReturnCoins(userMoney);
+        outputView.showReturnCoins(returnCoins);
     }
 }
